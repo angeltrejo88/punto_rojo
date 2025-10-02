@@ -1,0 +1,615 @@
+/* Navbar */
+header{
+    background-color: #c40606;
+    /* position: sticky;
+    top: 0;
+    z-index: 2000;*/    
+} 
+
+.sombra{
+    box-shadow: 0px 9px 32px 2px rgba(0,0,0,0.53);
+}
+  
+.navbar {
+      position: relative; /* Posición base para el nav */
+      z-index: 1; /* Asegura que el nav esté por encima de otros elementos */
+   height: 100px;
+    }
+
+    .navbar-collapse.collapse {
+    background-color: #c40606; /* Color oscuro para contraste (ajústalo a tu paleta) */
+    /* Asegúrate de que el texto del enlace sea blanco o claro */
+}
+
+.navbar-nav .nav-link {
+    color: white !important; 
+}
+    .navbar img {
+      position: relative; /* O absolute */
+      top: 5px; /* Mayor que el nav para que sobresalga */
+    }
+
+
+
+/* 1. Contenedor Principal: Define el espacio que ocupará el video */
+.hero-video-container {
+    position: relative; /* Es el ancla para el contenido y el video */
+    width: 100%;
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana (vista completa) */
+    overflow: hidden; /* Corta el exceso del video */
+    background: #000; /* Fondo negro si el video tarda en cargar */
+}
+
+/* 2. El Video: Cubrir toda el área */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1; /* Coloca el video debajo del contenido */
+    transform: translate(-50%, -50%); /* Centra el video horizontal y verticalmente */
+    object-fit: cover; /* Crucial: Asegura que el video cubra el área sin barras negras */
+}
+
+/* 3. El Contenido (Texto y Botón) sobre el video */
+.hero-content {
+    position: relative; 
+    z-index: 2; /* Siempre encima del video */
+    color: white; /* Texto blanco para contraste */
+    text-align: center;
+    padding-top: 25vh; /* Ajusta la posición vertical del contenido */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Mejora la legibilidad */
+}
+
+.hero-content a{
+     
+    background-color: #c40606; /* color del boton */
+    
+}
+
+
+/* 1. Asegúrate que la librería de íconos esté cargada si usas Font Awesome o Bootstrap Icons */
+
+/* 2. Estilo del Botón de Volumen */
+.volume-toggle-btn {
+    position: absolute; /* Para posicionarlo sobre el video */
+    bottom: 40px; /* Distancia desde el borde inferior */
+    right: 40px; /* Distancia desde el borde derecho */
+    z-index: 10; /* Asegura que esté encima del video y el contenido */
+    
+    /* Estilos de apariencia */
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente oscuro */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Forma de círculo */
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background 0.2s; /* Transición suave al pasar el mouse */
+}
+
+/* Efecto al pasar el mouse */
+.volume-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+       /* 1. Contenedor principal: Activa Flexbox */
+.container {
+    display: flex; /* Alinea los elementos hijos (videos) horizontalmente */
+    gap: 15px; /* Espacio entre los videos */
+    padding: 40px 0;
+    flex-wrap: wrap; /* Permite que los videos se apilen en pantallas pequeñas (responsividad) */
+}
+
+/* 2. Estilo de cada contenedor de video */
+.video-item {
+    /* Fuerza a que cada video ocupe 1/3 del ancho, restando el espacio (gap) */
+    flex: 1 1 calc(33.333% - 10px); /* 10px ajusta el 1/3 para el gap de 15px */
+    max-width: calc(33.333% - 10px);
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+/* 3. Estilos de Responsividad del Video (Ya lo tenías, pero es crucial) */
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    position: relative;
+    height: 1000px;
+    width: 100%; /* Asegura que tome todo el ancho de su contenedor (.video-item) */
+}
+
+.video-responsive iframe,
+.video-responsive .fb-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 4. RESPONSIVIDAD: Apilar en Móviles */
+@media (max-width: 768px) {
+    .container {
+        /* Permite que los videos se apilen verticalmente en una sola columna */
+        flex-direction: column; 
+    }
+    
+    .video-item {
+        /* Ocupa todo el ancho disponible en móvil */
+        max-width: 100%; 
+        flex: 1 1 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+  
+
+
+   
+ /* Estilos CSS para el whatsapp flotante */
+        .whatsapp-float {
+            position: fixed; /* Posición fija */
+            width: 60px;
+            height: 60px;
+            bottom: 40px; /* Distancia desde la parte inferior */
+            right: 40px; /* Distancia desde la parte derecha */
+            background-color: #25d366; /* Color verde de WhatsApp */
+            color: #fff; /* Color blanco para el ícono */
+            border-radius: 50px; /* Forma circular */
+            text-align: center;
+            font-size: 30px; /* Tamaño del ícono */
+            box-shadow: 2px 2px 3px #999; /* Sombra */
+            z-index: 100; /* Asegura que esté por encima de otros elementos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease; /* Transición suave */
+            cursor: pointer;
+        }
+        .whatsapp-float:hover {
+            background-color: #128c7e; /* Color al pasar el mouse */
+        }
+
+       
+
+/* 3. El Tooltip estilizado (el pseudo-elemento) */
+.whatsapp-float::after {
+    /* 3a. El contenido del tooltip: lee el atributo 'title' */
+    content: attr(title); 
+  /* 3b. Posicionamiento y visualización */
+    position: absolute;
+    bottom: 100%; /* Coloca el tooltip justo encima del elemento */
+    right: 100%;  /* Y a la izquierda del elemento */
+    
+    /* 3c. Estilos */
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    padding: 2px 5px;
+    border-radius: 2px;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    
+    /* 3d. Por defecto, oculto */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    
+    /* Limpia el title para que no interfiera */
+    pointer-events: none;
+}
+/* 4. Mostrar el Tooltip al hacer hover */
+.whatsapp-float:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Estilos CSS para el facebook flotante */
+       .btn-facebook {
+            position: fixed; /* Posición fija */
+            width: 60px;
+            height: 60px;
+            bottom: 105px; /* Distancia desde la parte inferior */
+            right: 40px; /* Distancia desde la parte derecha */
+            background-color: #1877F2; /* Color verde de WhatsApp */
+            color: #fff; /* Color blanco para el ícono */
+            border-radius: 50px; /* Forma circular */
+            text-align: center;
+            font-size: 30px; /* Tamaño del ícono */
+            box-shadow: 2px 2px 3px #999; /* Sombra */
+            z-index: 100; /* Asegura que esté por encima de otros elementos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease; /* Transición suave */
+            cursor: pointer;
+        }
+        .btn-facebook:hover {
+            background-color: #3b5998; /* Color al pasar el mouse */
+        }
+
+       
+
+/* 3. El Tooltip estilizado (el pseudo-elemento) */
+.btn-facebook::after {
+    /* 3a. El contenido del tooltip: lee el atributo 'title' */
+    content: attr(title); 
+  /* 3b. Posicionamiento y visualización */
+    position: absolute;
+    bottom: 100%; /* Coloca el tooltip justo encima del elemento */
+    right: 100%;  /* Y a la izquierda del elemento */
+    
+    /* 3c. Estilos */
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    padding: 2px 5px;
+    border-radius: 2px;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    
+    /* 3d. Por defecto, oculto */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    
+    /* Limpia el title para que no interfiera */
+    pointer-events: none;
+}
+/* 4. Mostrar el Tooltip al hacer hover */
+.btn-facebook:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Estilos CSS para las llamadas flotante */
+ 
+       .telephone-float {
+            position: fixed; /* Posición fija */
+            width: 60px;
+            height: 60px;
+            bottom: 170px; /* Distancia desde la parte inferior */
+            right: 40px; /* Distancia desde la parte derecha */
+            background-color: #cf000a; /* Color verde de WhatsApp */
+            color: #fff; /* Color blanco para el ícono */
+            border-radius: 50px; /* Forma circular */
+            text-align: center;
+            font-size: 30px; /* Tamaño del ícono */
+            box-shadow: 2px 2px 3px #999; /* Sombra */
+            z-index: 100; /* Asegura que esté por encima de otros elementos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease; /* Transición suave */
+            cursor: pointer;
+        }
+        .telephone-float:hover {
+            background-color: #eb0101; /* Color al pasar el mouse */
+        }
+
+       
+
+/* 3. El Tooltip estilizado (el pseudo-elemento) */
+.telephone-float::after {
+    /* 3a. El contenido del tooltip: lee el atributo 'title' */
+    content: attr(title); 
+  /* 3b. Posicionamiento y visualización */
+    position: absolute;
+    bottom: 100%; /* Coloca el tooltip justo encima del elemento */
+    right: 100%;  /* Y a la izquierda del elemento */
+    
+    /* 3c. Estilos */
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    padding: 2px 5px;
+    border-radius: 2px;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    
+    /* 3d. Por defecto, oculto */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    
+    /* Limpia el title para que no interfiera */
+    pointer-events: none;
+}
+/* 4. Mostrar el Tooltip al hacer hover */
+.telephone-float:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+/* Promociones festividad */
+
+.festividad-promo {
+    display: flex; /* Alinea contenido y animación horizontalmente */
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    margin: 40px 0;
+    
+    /* Colores base para la festividad (Halloween: Naranja y Negro) */
+    background-color: #222; /* Fondo oscuro */
+    color: white; 
+    border-radius: 10px;
+}
+
+.promo-content {
+    flex: 1; /* Ocupa el espacio del lado del texto */
+    max-width: 600px;
+    text-align: left;
+}
+
+.promo-animation {
+    flex: 0 0 200px; /* Tamaño fijo para la animación */
+    text-align: center;
+    margin-left: 30px;
+}
+
+.promo-animation img {
+    max-width: 100%;
+    height: auto;
+    /* Opcional: Filtro de brillo si el fondo es muy oscuro */
+    filter: drop-shadow(0 0 5px rgba(255, 140, 0, 0.7)); 
+}
+
+/* Responsividad: Apilar en móvil */
+@media (max-width: 768px) {
+    .festividad-promo {
+        flex-direction: column; /* Apila el contenido y la animación */
+    }
+    .promo-animation {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+}
+
+/* Colores y acentos Específicos de HALLOWEEN */
+#promo-halloween {
+    background-color: #1a1a1a; /* Negro muy oscuro */
+    border: 3px solid #ff7f50; /* Borde naranja calabaza */
+}
+
+#promo-halloween h2 {
+    color: #ff7f50; /* Títulos naranjas */
+}
+
+/* Estilo del botón temático */
+#promo-halloween .btn-warning {
+    background-color: #ff7f50 !important;
+    border-color: #ff7f50 !important;
+    color: #1a1a1a !important; /* Texto oscuro en el botón */
+}
+
+
+
+/* ESTILOS RESEÑAS DE FACEBOOK */
+
+/* 1. Contenedor principal: Activa Flexbox para alineación horizontal */
+.review-section {
+    display: flex; /* Convierte el contenedor en un flex container */
+    gap: 20px; /* Espacio entre cada tarjeta */
+    padding: 20px;
+    flex-wrap: wrap; /* Importante para la responsividad: permite que las tarjetas salten a la siguiente línea en móvil */
+    justify-content: center; /* Centra las tarjetas si no llenan todo el ancho */
+}
+
+/* 2. Estilo de cada tarjeta (el cuadro de reseña) */
+.review-card {
+    background-color: #f7f7f7; /* Un gris claro para simular un fondo de tarjeta */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    
+    /* Permite que cada tarjeta ocupe el mismo espacio (1/3 menos el espacio) */
+    flex: 1 1 300px; /* Esto significa: crecerá (1), se encogerá (1), pero nunca será más pequeña de 300px */
+    max-width: 350px; /* Límite para que no se estiren demasiado en pantallas gigantes */
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para darle un efecto "flotante" */
+    
+    /* Hace que la tarjeta tenga una altura flexible si el texto es muy largo */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el nombre del revisor al final */
+}
+
+/* 3. Estilos de texto (Opcional) */
+.review-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.reviewer-info {
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+    padding-top: 10px;
+    border-top: 1px dashed #eee; /* Separador sutil */
+}
+
+.stars {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+/* ESTILOS DE BLOQUES DE AREAS */
+
+/* Estilo del Contenedor Global */
+.service-blocks-container {
+    padding: 40px 0;
+}
+
+/* 1. Estilo Básico para Cada Bloque */
+.service-block {
+    display: flex; /* Activa Flexbox para alineación horizontal */
+    align-items: center; /* Centra verticalmente la imagen y el texto */
+    margin-bottom: 60px;
+    padding: 20px;
+    border-bottom: 1px solid #eee; /* Separador sutil */
+}
+
+/* 2. El Zigzag: Invertir el Orden en Bloques Pares */
+/* La clase .reverse se aplica en el HTML a los bloques 2 y 4 */
+.service-block.reverse {
+    /* Esto invierte el orden: ahora el contenido va primero y la imagen después */
+    flex-direction: row-reverse;
+}
+
+/* 3. Estilo para la Imagen */
+.service-image {
+    flex: 0 0 40%; /* La imagen ocupa el 40% del ancho */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.service-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover; /* Asegura que la imagen se vea bien sin distorsionarse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Estilo para el Contenido (Título, Reseña, Párrafo) */
+.service-content {
+    flex: 0 0 60%; /* El contenido ocupa el 60% del ancho */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.service-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-content p strong {
+    color: #007bff; /* Color para destacar la palabra 'Reseña' */
+}
+
+/* 5. RESPONSIVIDAD: Apilar en Móviles */
+/* Cuando la pantalla es pequeña (menos de 768px), queremos que el zigzag desaparezca */
+@media (max-width: 768px) {
+    .service-block,
+    .service-block.reverse {
+        /* Fuerza a que los elementos se apilen verticalmente */
+        flex-direction: column; 
+    }
+
+    .service-image,
+    .service-content {
+        /* Hace que la imagen y el contenido ocupen todo el ancho disponible */
+        flex: 1 1 100%; 
+        padding: 10px;
+        text-align: center; /* Centra el contenido en móvil */
+    }
+}
+
+
+/* 1. Contenedor Flex: Disposición Horizontal */
+.contacto-flex {
+    display: flex; /* Activa la alineación en fila */
+    gap: 30px; /* Espacio entre la información y el mapa */
+    padding: 40px 20px;
+    align-items: flex-start; /* Alinea los elementos a la parte superior */
+    flex-wrap: wrap; /* Esencial para el apilamiento en móvil */
+}
+
+/* 2. Definir el ancho de cada columna */
+.contacto-info {
+    flex: 1 1 350px; /* Crece/Encoge, con un tamaño base de 350px (aprox 40% del total) */
+    padding: 15px;
+}
+
+.mapa-contenedor {
+    flex: 1 1 500px; /* Crece/Encoge, con un tamaño base de 500px (aprox 60% del total) */
+    /* Asegúrate de anular los estilos fijos del iframe aquí: */
+    width: 100%;
+    height: auto;
+}
+
+/* 3. Estilos de contenido para claridad */
+.referencia, .datos-adicionales {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.contacto-info address i, 
+.datos-adicionales i {
+    margin-right: 8px;
+    color: #cc0000; /* Puedes usar el color rojo de "Punto Rojo" para el icono */
+}
+
+/* 4. Anular ancho fijo del iframe y establecer altura */
+.mapa-contenedor iframe {
+    width: 100%; 
+    height: 450px; /* Mantiene una altura cómoda para visualizar el mapa */
+    border: none;
+    border-radius: 8px; /* Opcional: bordes redondeados */
+}
+
+/* 5. RESPONSIVIDAD: Apilar en móvil */
+/* Cuando el espacio es menor, el flex-wrap: wrap apilará automáticamente */
+@media (max-width: 992px) {
+    .contacto-info,
+    .mapa-contenedor {
+        flex: 1 1 100%; /* Ocupan el 100% del ancho, forzando el apilamiento */
+    }
+}
+
+/* ESTILO DE FORMULARIO DE CONTACTO*/
+
+/* Estilo del contenedor para darle un fondo ligero */
+#cotizacionForm {
+    padding: 30px;
+    background-color: #f8f9fa; /* Gris muy claro */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo para los labels de los campos obligatorios */
+.form-label:after {
+    content: " *";
+    color: #cc0000; /* Un rojo para destacar la obligatoriedad */
+}
+
+/* Personalizar el botón de envío (usando el rojo de Punto Rojo) */
+.btn-danger {
+    background-color: #c40606 !important;
+    border-color: #cc0000 !important;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #990000 !important;
+    border-color: #990000 !important;
+}
+
+#dev-credit::after {
+    /* Utiliza un código de copyright y un espacio para separar */
+    content: " | Diseño y Desarrollo por Angel Trejo"; 
+    display: inline-block;
+    padding-left: 10px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
