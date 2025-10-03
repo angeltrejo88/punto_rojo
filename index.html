@@ -435,7 +435,7 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
     <h2>¿Listo para tu evento? ¡Cotiza con Punto Rojo!</h2>
     <p class="lead">Cuéntanos sobre tu evento y te enviaremos una cotización detallada en menos de 24 horas.</p>
 
-    <form id="cotizacionForm" action="php/procesar_cotizacion.php" method="POST">
+    <form id="cotizacionForm" onsubmit="enviarWhatsApp(event)">
         
         <div class="row mb-3">
             <div class="col-md-6 mb-3">
@@ -496,7 +496,7 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
             <textarea class="form-control" id="detalles" name="detalles" rows="4" required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-danger btn-lg mt-3">Enviar Solicitud de Cotización</button>
+        <button type="submit" class="btn btn-danger btn-lg mt-3">Enviar Solicitud de Cotización por WhatsApp</button>
         
     </form>
 </section>
@@ -520,6 +520,50 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
  
 
     </script>
+
+	  <script>
+    function enviarWhatsApp(event) {
+        event.preventDefault(); 
+        
+        // 1. Número de WhatsApp de Punto Rojo Multimedia
+        const numeroTelefono = "526182530067"; // TU NÚMERO
+        
+        // 2. Captura de Datos (Mismo código de captura)
+        const nombre = document.getElementById('nombre').value;
+        const telefono = document.getElementById('telefono').value;
+        const email = document.getElementById('email').value;
+        const fecha = document.getElementById('fecha').value;
+        const tipoEvento = document.getElementById('tipo_evento').value;
+        
+        const serviciosSeleccionados = Array.from(document.querySelectorAll('input[name="servicios[]"]:checked'))
+            .map(checkbox => checkbox.value)
+            .join(', ');
+            
+        const detalles = document.getElementById('detalles').value;
+
+
+        // 3. Composición del Mensaje (SIN ENCODE)
+        // Usamos solo los códigos %0A para los saltos de línea.
+        let mensaje = `¡Hola, soy ${nombre} y me gustaría cotizar un evento con Punto Rojo Multimedia!%0A%0A`; 
+        mensaje += `*DATOS DE CONTACTO*%0A`;
+        mensaje += `Teléfono: ${telefono}%0A`;
+        mensaje += `Correo: ${email}%0A%0A`;
+        
+        mensaje += `*DETALLES DEL EVENTO*%0A`;
+        mensaje += `Fecha: ${fecha}%0A`;
+        mensaje += `Tipo de Evento: ${tipoEvento}%0A`;
+        mensaje += `Servicios Solicitados: ${serviciosSeleccionados || 'No especificados'}%0A%0A`;
+        
+        mensaje += `*Notas Adicionales:* ${detalles}`;
+
+        // 4. Construcción y Apertura del Enlace de WhatsApp
+        // Usamos el texto directamente sin codificar.
+        const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensaje}`;
+        
+        window.open(urlWhatsApp, '_blank'); 
+    }
+</script>
+
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -558,4 +602,5 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
 </script>
 
   </body>
+
 </html>
