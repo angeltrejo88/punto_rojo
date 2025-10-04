@@ -4,8 +4,15 @@ header{
     /* position: sticky;
     top: 0;
     z-index: 2000;*/    
-} 
+ } 
 
+
+
+
+
+
+
+ 
 .sombra{
     box-shadow: 0px 9px 32px 2px rgba(0,0,0,0.53);
 }
@@ -34,7 +41,7 @@ header{
 /* 1. Contenedor Principal: Define el espacio que ocupará el video */
 .hero-video-container {
     position: relative; /* Es el ancla para el contenido y el video */
-    width: 100%;
+    max-width: 100%; 
     height: 100vh; /* Ocupa el 100% de la altura de la ventana (vista completa) */
     overflow: hidden; /* Corta el exceso del video */
     background: #000; /* Fondo negro si el video tarda en cargar */
@@ -123,7 +130,7 @@ header{
     padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
     position: relative;
     height: 1000px;
-    width: 100%; /* Asegura que tome todo el ancho de su contenedor (.video-item) */
+    max-width: 100%;  /* Asegura que tome todo el ancho de su contenedor (.video-item) */
 }
 
 .video-responsive iframe,
@@ -166,7 +173,7 @@ header{
             position: fixed; /* Posición fija */
             width: 60px;
             height: 60px;
-            bottom: 40px; /* Distancia desde la parte inferior */
+            bottom: 30px; /* Distancia desde la parte inferior */
             right: 40px; /* Distancia desde la parte derecha */
             background-color: #25d366; /* Color verde de WhatsApp */
             color: #fff; /* Color blanco para el ícono */
@@ -283,7 +290,7 @@ header{
             position: fixed; /* Posición fija */
             width: 60px;
             height: 60px;
-            bottom: 170px; /* Distancia desde la parte inferior */
+            bottom: 180px; /* Distancia desde la parte inferior */
             right: 40px; /* Distancia desde la parte derecha */
             background-color: #cf000a; /* Color verde de WhatsApp */
             color: #fff; /* Color blanco para el ícono */
@@ -543,7 +550,7 @@ header{
 .mapa-contenedor {
     flex: 1 1 500px; /* Crece/Encoge, con un tamaño base de 500px (aprox 60% del total) */
     /* Asegúrate de anular los estilos fijos del iframe aquí: */
-    width: 100%;
+     max-width: 100%; 
     height: auto;
 }
 
@@ -605,6 +612,69 @@ header{
     border-color: #990000 !important;
 }
 
+/* 1. Estilos de la Tarjeta de Oferta */
+.oferta-card {
+    position: relative;
+    height: 400px; /* Altura fija para hacerlas grandes */
+    border-radius: 12px;
+    overflow: hidden; /* Corta la imagen si se sale */
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease-in-out; /* Animación al pasar el ratón */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra para resaltar */
+}
+
+/* Efecto Hover: Hace que la tarjeta "salte" un poco al pasar el ratón */
+.oferta-card:hover {
+    transform: translateY(-5px); 
+}
+
+/* 2. Superposición Semitransparente (Overlay) */
+/* Oscurece la imagen para que el texto blanco se lea bien */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); /* Fondo oscuro semitransparente */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    text-align: center;
+}
+
+/* 3. Estilos de Precio */
+.precio-final {
+    margin-top: 15px;
+}
+
+.precio-monto {
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 5px 15px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil para el precio */
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* 4. Botón Llamativo (Ajusta el color si es necesario) */
+.oferta-card .btn-warning {
+    background-color: #ffc107; /* Amarillo llamativo */
+    border: none;
+    font-weight: 700;
+    padding: 10px 30px;
+    text-transform: uppercase;
+}
+
+/* Forzar la visualización de la sección en todas las resoluciones */
+#seccion-ofertas {
+    display: block !important;
+}
+
+
+
 #dev-credit::after {
     /* Utiliza un código de copyright y un espacio para separar */
     content: " | Diseño y Desarrollo por Angel Trejo"; 
@@ -612,4 +682,44 @@ header{
     padding-left: 10px;
     font-size: 0.9em;
     opacity: 0.8;
+}
+
+
+
+
+
+/* Media Query para Dispositivos Móviles (Ancho de pantalla de 768px o menos) */
+@media (max-width: 968px) {
+    
+    /* Aumenta la Fuente Base de Todo el Contenido */
+    body {
+        /* Un valor de 110% o 120% a menudo mejora mucho la legibilidad */
+        font-size: 155%; 
+    }
+
+    /* Ajuste Opcional para Encabezados Grandes */
+    /* Si los h1 se ven demasiado grandes, puedes reducirlos un poco */
+    h1 {
+        font-size: 2.2rem; /* Tamaño más pequeño que el de escritorio */
+    }
+
+    /* Ajuste Opcional para Encabezados de Sección */
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Ajuste Opcional para Texto de Párrafo */
+    p {
+        line-height: 1.7; /* Aumentar la altura de línea mejora la lectura en pantallas pequeñas */
+        
+    }
+    .container p{
+        /* Un valor de 110% o 120% a menudo mejora mucho la legibilidad */
+        font-size: 125%; 
+    }
+
+    .container h2{
+        /* Un valor de 110% o 120% a menudo mejora mucho la legibilidad */
+        font-size: 230%; 
+    }
 }

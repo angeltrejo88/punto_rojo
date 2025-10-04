@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=0.70, maximum-scale=1.0, user-scalable=no">
     <title>Punto rojo</title>
 
     <!--Boostrap-->
@@ -21,7 +21,7 @@
   <body>
 
     
-    
+   
 
 
     <!--Navbar-->
@@ -326,7 +326,47 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
         </div>      
       </section>
 
+<!-- ofertas de temporada -->
+<section class="container my-5" id="seccion-ofertas">
+    <h2 class="text-center mb-4">¡Ofertas Exclusivas de la Semana!</h2>
+    <p class="text-center lead">Combina nuestros servicios de audio, video e iluminación para obtener descuentos increíbles.</p>
 
+    <div class="row">
+        
+        <div class="col-md-6 mb-4">
+            <div class="oferta-card bg-primary text-white" style="background-image: url('promo1.jpg');">
+                <div class="card-overlay">
+                    <h3>¡Upgrade de Audio + DJ!</h3>
+                    <p class="frase-oferta">Renta nuestro equipo de sonido Premium y te incluimos el servicio de DJ profesional por solo</p>
+                    <div class="precio-final">
+                        <span class="precio-monto">+$4,000 MXN</span>
+                    </div>
+                    <a href="#seccion-contacto" class="btn btn-warning mt-3">¡Lo Quiero!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="oferta-card bg-danger text-white" style="background-image: url('promo2.jpg');">
+                <div class="card-overlay">
+                    <h3>¡Doble Pantalla, Doble Impacto!</h3>
+                    <p class="frase-oferta">En la renta de la pantalla LED de 60", por solo $3,000 pesos adicionales, ¡te la agrandamos a una de 100"!</p>
+                    <div class="precio-final">
+                        <span class="precio-monto">+$3,000 MXN</span>
+                    </div>
+                    <a href="#seccion-contacto" class="btn btn-warning mt-3">¡Pide tu Upgrade!</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+<!-- Promocion de la temporada -->
 <section id="promo-halloween" class="festividad-promo">
     <div class="promo-content">
         <h2>🎃 ¡Noche de Locura Garantizada! 👻</h2>
@@ -499,7 +539,12 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
         <button type="submit" class="btn btn-danger btn-lg mt-3">Enviar Solicitud de Cotización por WhatsApp</button>
         
     </form>
+
+    
+
+
 </section>
+
 
 
 <section>
@@ -517,11 +562,11 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 
  
- 
-
     </script>
 
-	  <script>
+
+
+<script>
     function enviarWhatsApp(event) {
         event.preventDefault(); 
         
@@ -565,6 +610,7 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
 </script>
 
 
+
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Obtenemos los elementos por su ID
@@ -602,5 +648,4 @@ Nuestro equipo trabaja con discreción y respeto, pero siempre con atención a c
 </script>
 
   </body>
-
 </html>
